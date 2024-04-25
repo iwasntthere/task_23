@@ -1,214 +1,51 @@
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
-body {
-    margin: 0;
-    color: #fff;
-    font-family: "Caveat", cursive;
-    background: #1d1d1d;
-}
-
-header {
-    display: flex;
-    height: 3rem;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    box-shadow: 0 0 5px #fff;
-    position: sticky;
-    top: 0;
-    background: #1d1d1d;
-}
-
-header a {
-    margin: 0 1rem;
-    color: #fff;
-    text-decoration: none;
-    font-size: 2rem;
-}
-
-h1 {
-    margin: 1rem;
-    font-size: 3rem;
-}
-
-div p {
-    font-size: 2rem;
-    margin: 0;
-}
-
-#grid {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 1rem;
-    grid-row-gap: 5rem;
-}
-
-.photo img {
-    width: 100%;
-    height: 100%;
-}
-
-.photo p {
-    text-align: center;
-}
-
-.mobile_icon {
-    display: none;
-}
-
-#add_new_photo {
-    position: fixed;
-    z-index: 2;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background: rgba(29, 29, 29, .5);
-    display: none;
-}
-#add_new_photo.open {
-    display: flex;
-}
-#add_new_photo form {
-    width: 80%;
-    border: 2px solid #1d1d1d;
-    background: #fff;
-    border-radius: 5px;
+p {
     padding: 1rem;
+    position: relative;
+    font-size: 2rem;
+    border-radius: 15px;
+    overflow: hidden;
 }
-#add_new_photo input {
-    padding: .5rem;
-    font-family: 'Montserrat', sans-serif;
-    display: block;
-    margin-bottom: 1rem;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-#add_new_photo input.error {
-    border-color: red;
-}
-
-#add_new_photo button {
-font-family: 'Montserrat', sans-serif;
-padding: .5rem;
-}
-
-#popup_photo {
-    position: fixed;
-    z-index: 2;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+p::before {
     height: 100%;
-    left: 0;
+    width: 100%;
+    content: "";
+    position: absolute;
     top: 0;
-    background: rgba(29, 29, 29, .5);
-    display: none;
+    left: 0;
+    z-index: -1;
+    opacity: .5;
 }
-
-#popup_photo.open {
-    display: flex;
+p:first-child::before{
+    background-image: url("https://i.imgur.com/ssQVzrt.jpg");
 }
-
-#popup_photo img {
-    max-width: 90%;
-    max-height: 90%;
+p:nth-child(2)::before{
+    background-image: url("https://static1.srcdn.com/wordpress/wp-content/uploads/2021/03/Among-Us-Random-Name-Generator.jpg");
 }
-
-.form {
-    width: 50%;
-    margin: 3rem auto;
-}
-.form input {
-    padding: .5rem;
-    font-family: 'Montserrat', sans-serif;
-    display: block;
-    margin-bottom: 1rem;
-    width: 100%;
-    box-sizing: border-box;
-}
-.form button {
-    font-family: 'Montserrat', sans-serif;
-    padding: .5rem;
-}
-
-.form .error {
-    color: red;
-    font-weight: bold;
-}
-
-.form .success {
-    color: lightgreen;
-    font-weight: bold;
-}
-
-.photo {
+p:hover {
     color: #fff;
-    text-decoration: none;
+}
+p:hover::before {
+    opacity: 1;
+}
+p:active {
+    opacity: .75;
+}
+p {
+    transition: opacity .25s ease, color .5s ease;
+}
+p::before {
+    transition: all .5s cubic-bezier(.17,.67,.29,.86);
+}
+@keyframes bg-anim {
+    from {
+            background-position-x: -500px ;
+    }
+    to {
+            background-position-y: 0 ;
+    }
+}
+p::before {
+    animation: bg-anim 20s infinite linear;
+    background-size: auto 500px;
 }
 
-#image img {
-    max-width: 100%;
-    max-height: 80vh;
-    display: block;
-    margin: 1rem 0;
-}
-
-#image h1, #image p {
-    padding: 0 3rem;
-    box-sizing: border-box;
-    margin: 1rem 0;
-}
-
-#image p {
-    font-style: italic;
-}
-
-.comments {
-    margin-top: 3rem;
-}
-
-.comments h2 {
-    padding: 0 1rem;
-}
-
-.comment {
-    border: 2px solid #fff;
-    border-radius: 1rem;
-    padding: 1rem;
-    width: 90%;
-    margin: 1rem auto;
-}
-
-.comment p {
-    padding: 0;
-}
-
-.comment .author {
-    font-weight: bold;
-}
-
-.comment .text {
-    font-size: 1.25rem;
-}
-
-.comment .date {
-    font-style: italic;
-    font-size: .9rem;
-}
-
-comments .form {
-    width: 90%;
-}
-
-.comments .form textarea {
-    padding: .5rem;
-    font-family: 'Montserrat', sans-serif;
-    display: block;
-    margin-bottom: 1rem;
-    width: 100%;
-    box-sizing: border-box;
-}
